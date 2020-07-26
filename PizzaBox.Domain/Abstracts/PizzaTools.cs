@@ -4,7 +4,7 @@ namespace PizzaBox.Domain.Abstracts
 {
   class PizzaTools
   {
-    internal static string Pricing(string size, int numberOfToppings)
+    internal virtual string Pricing(string size, int numberOfToppings)
     {
       double _regular = 7.99;
       double _price;
