@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Domain;
+
 
 namespace PizzaBox.Client
 {
