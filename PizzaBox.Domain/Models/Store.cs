@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 namespace PizzaStore.Domain
 {
-    public class User
+    public class Store
     {
       public List<Order> Order {get;}
 
-      public User()
+      public Store()
       {
         Order = new List<Order>();
       }
+
     }
 }
