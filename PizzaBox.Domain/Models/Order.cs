@@ -4,7 +4,7 @@ using PizzaBox.Domain.Abstracts;
 
 namespace PizzaBox.Domain.Models
 {
-  class Order : PizzaTools
+  public class Order : PizzaTools
   {
     public Pizza[] Pizza {get;}
     int _pizzaCounter = 0;

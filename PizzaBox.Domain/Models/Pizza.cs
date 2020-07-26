@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaBox.Domain
 {
-  class Pizza
+  public class Pizza
   {
     public string _price = "0";
 

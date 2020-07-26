@@ -2,7 +2,7 @@ using System;
 
 namespace PizzaBox.Domain.Abstracts
 {
-  class PizzaTools
+  public class PizzaTools
   {
     internal virtual string Pricing(string size, int numberOfToppings)
     {
