@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using PizzaStore.Client;
-using PizzaStore.Domain.Models;
+using PizzaStore.Domain;
 
 namespace PizzaStore.Client
 {
