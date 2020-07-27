@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
-using PizzaBox.Domain.Models;
+using PizzaBox.Domain;
 
-namespace PizzaStore.Client
+namespace PizzaBox.Client
 {
   public class Starter
   {
-    public Order CreateOrder()//User user, Store store)
+    public Order CreateOrder(User user, Store store)
    {
       try
       {
         var order = new Order();
 
-       // user.Order.Add(order);
-       // store.Order.Add(order);
+       user.Order.Add(order);
+       store.Order.Add(order);
 
         return order;
       }

@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using PizzaBox.Domain.Models;
 
-namespace PizzaStore.Domain
+namespace PizzaBox.Domain
 {
     public class User
     {

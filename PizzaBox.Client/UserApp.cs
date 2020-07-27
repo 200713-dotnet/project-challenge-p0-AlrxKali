@@ -1,7 +1,8 @@
+
 using System;
 using System.Collections.Generic;
-using PizzaBox.Domain.Models;
 using PizzaBox.Client;
+using PizzaBox.Domain;
 
 namespace PizzaBox.Client
 {
@@ -18,9 +19,9 @@ namespace PizzaBox.Client
         System.Console.WriteLine("Best Pizza in the World");
         System.Console.WriteLine();
 
-        var starter = new Starter();
-        var user = new User();
-        var store = new Store();
+       var starter = new Starter();
+       var user = new User();
+      var store = new Store();
 
         try 
         {

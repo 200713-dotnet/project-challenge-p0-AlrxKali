@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using PizzaBox.Domain.Abstracts;
 
-namespace PizzaBox.Domain.Models
+namespace PizzaBox.Domain
 {
   public class Order : PizzaTools
   {
@@ -26,8 +26,6 @@ namespace PizzaBox.Domain.Models
         {
           Console.WriteLine(ex.Message);
         }
-        
-
       }
 
     internal override string Pricing(string size, int numberOfToppings)
@@ -36,6 +34,5 @@ namespace PizzaBox.Domain.Models
 
       return $"{_price}";
     }
-
   }
 }
