@@ -28,7 +28,7 @@ namespace PizzaBox.Domain
         }
       }
 
-    internal override string Pricing(string size, int numberOfToppings)
+    public override string Pricing(string size, int numberOfToppings)
     {
       int _price = 0;
 

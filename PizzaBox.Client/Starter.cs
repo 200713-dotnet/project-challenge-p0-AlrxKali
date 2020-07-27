@@ -37,5 +37,19 @@ namespace PizzaBox.Client
         System.Console.WriteLine("Select 6 for Exit");
         System.Console.WriteLine();
       }
+
+      public static int PickLocation()
+      {
+        int location;
+
+        Console.WriteLine("Please, select where do you want to order");
+        Console.WriteLine("1. Location 1");
+        Console.WriteLine("2. Location 2");
+        Console.WriteLine();
+
+         int.TryParse(Console.ReadLine(), out location);
+
+        return location;
+      }
   }
 }

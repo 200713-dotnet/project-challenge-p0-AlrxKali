@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using PizzaBox.Client;
@@ -6,10 +5,10 @@ using PizzaBox.Domain;
 
 namespace PizzaBox.Client
 {
-    class UserApp
+    class Program
     {
-      static void Main()
-      {
+        static void Main(string[] args)
+        {
         Welcome();
       }
 
@@ -19,9 +18,12 @@ namespace PizzaBox.Client
         System.Console.WriteLine("Best Pizza in the World");
         System.Console.WriteLine();
 
-       var starter = new Starter();
+      var starter = new Starter();
        var user = new User();
-      var store = new Store();
+       
+
+       var location = Starter.PickLocation();
+       var store = new Store(location);
 
         try 
         {
@@ -47,19 +49,19 @@ namespace PizzaBox.Client
         switch (select)
         {
           case 1:
-            cart.CreatePizza("L", "Stuffed", new List<string> { "cheese" });
+            cart.CreatePizza("L", "Stuffed");
             System.Console.WriteLine("added Cheese");
             break;
           case 2:
-            cart.CreatePizza("L", "Stuffed", new List<string> { "pepperoni" });
+            cart.CreatePizza("L", "Stuffed");
             System.Console.WriteLine("added Pepperoni");
             break;
           case 3:
-            cart.CreatePizza("L", "Stuffed", new List<string> { "pineapple" });
+            cart.CreatePizza("L", "Stuffed");
             System.Console.WriteLine("added Pineapple");
             break;
           case 4:
-            cart.CreatePizza("L", "Stuffed", new List<string> { "custom" });
+            cart.CreatePizza("L", "Stuffed");
             System.Console.WriteLine("added Custom");
             break;
           case 5:
@@ -85,8 +87,10 @@ namespace PizzaBox.Client
       {
         foreach (var pizza in cart.Pizza)
        {
-         System.Console.WriteLine(pizza);
+         Console.WriteLine(pizza);
+         Console.WriteLine(cart.Pricing(pizza.Size, pizza.Toppings.Length));
        }
+      
      }
     }
 }
