@@ -18,8 +18,7 @@ create table PizzaBox.Pizza
 (
   Pizza_id INT IDENTITY(1,1) PRIMARY KEY, 
   Crust NVARCHAR(100),
-  Size NVARCHAR(100),
-  [Name] NVARCHAR(200) not null
+  Size NVARCHAR(100)
 );
 
 create table PizzaBox.Toppings
