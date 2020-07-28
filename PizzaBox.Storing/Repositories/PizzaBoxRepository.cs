@@ -1,22 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PizzaBox.Storing;
-using domain = PizzaBox.Domain.Models;
+using domain = PizzaBox.Domain;
 
-namespace PizzaBox.Storing
+namespace PizzaBox.Storing.Repositories
 {
-  public class DBRepository
-  { /*
+  public class PizzaBoxRepository
+  {
     private PizzaBoxDBContext _db = new PizzaBoxDBContext();
 
-    public void Create(Pizza pizza)
+    public void Create(domain.Pizza pizza)
     {
       var newPizza = new Pizza();
 
-      newPizza.Crust = new Crust() { Name = pizza.Crust };
-      newPizza.Size = new Size() { Name = pizza.Size};
+      newPizza.Crust = new Crust() { Name = pizza.Crust.Name };
+      newPizza.Size = new Size() { Name = pizza.Size.Name };
+      newPizza.Name = pizza.Name;
       var orderDate = DateTime.UtcNow;
+      //newPizza.DateModified = DateTime.Now;
+      //newPizza.Active = false;
+      //newPizza.UserModified = Identity.Hash;
 
       _db.Pizza.Add(newPizza);
       _db.SaveChanges();
@@ -37,6 +40,10 @@ namespace PizzaBox.Storing
       };
 
       return domainPizzaList;
-    }*/
+    }
+
+    public void Update() {}
+
+    public void Delete() {}
   }
 }

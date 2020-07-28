@@ -26,8 +26,7 @@ namespace PizzaBox.Storing
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"server=localhost;database=PizzaBoxDB;
-user id=sa;password=Password123");
+                optionsBuilder.UseSqlServer("server=localhost;database=PizzaBoxDB; user id=sa;password=Password123");
             }
         }
 
@@ -36,7 +35,7 @@ user id=sa;password=Password123");
             modelBuilder.Entity<Orders>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__Orders__F1FF84535494CD32");
+                    .HasName("PK__Orders__F1FF8453DF7B360D");
 
                 entity.ToTable("Orders", "PizzaBox");
 
@@ -47,7 +46,7 @@ user id=sa;password=Password123");
                 entity.HasOne(d => d.Pizza)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.PizzaId)
-                    .HasConstraintName("FK__Orders__Pizza_id__3A81B327");
+                    .HasConstraintName("FK__Orders__Pizza_id__3B75D760");
             });
 
             modelBuilder.Entity<Pizza>(entity =>
@@ -64,7 +63,7 @@ user id=sa;password=Password123");
             modelBuilder.Entity<Stores>(entity =>
             {
                 entity.HasKey(e => e.StoreId)
-                    .HasName("PK__Stores__A0F06719EDCFB075");
+                    .HasName("PK__Stores__A0F0671914E0314C");
 
                 entity.ToTable("Stores", "PizzaBox");
 
@@ -77,23 +76,22 @@ user id=sa;password=Password123");
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Stores)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__Stores__Order_id__3D5E1FD2");
+                    .HasConstraintName("FK__Stores__Order_id__3E52440B");
             });
 
             modelBuilder.Entity<Toppings>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ToppingItem)
+                    .HasName("PK__Toppings__53D46871A35EE129");
 
                 entity.ToTable("Toppings", "PizzaBox");
 
                 entity.Property(e => e.PizzaId).HasColumnName("Pizza_id");
 
-                entity.Property(e => e.ToppingItem).ValueGeneratedOnAdd();
-
                 entity.HasOne(d => d.Pizza)
-                    .WithMany()
+                    .WithMany(p => p.Toppings)
                     .HasForeignKey(d => d.PizzaId)
-                    .HasConstraintName("FK__Toppings__Pizza___37A5467C");
+                    .HasConstraintName("FK__Toppings__Pizza___38996AB5");
             });
 
             modelBuilder.Entity<Users>(entity =>
@@ -112,7 +110,7 @@ user id=sa;password=Password123");
                 entity.HasOne(d => d.Stores)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.StoresId)
-                    .HasConstraintName("FK__Users__Stores_id__403A8C7D");
+                    .HasConstraintName("FK__Users__Stores_id__412EB0B6");
             });
 
             OnModelCreatingPartial(modelBuilder);
