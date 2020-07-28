@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using PizzaBox.Client;
 using PizzaBox.Domain;
+using PizzaBox.Storing.Repositories;
 
 namespace PizzaBox.Client
 {
@@ -14,13 +15,17 @@ namespace PizzaBox.Client
 
       public static void Welcome()
       {
-        System.Console.WriteLine("Welcome to PizzaWorld");
-        System.Console.WriteLine("Best Pizza in the World");
-        System.Console.WriteLine();
+        Console.WriteLine("Welcome to PizzaBox");
+        Console.WriteLine("How to order:");
+        Console.WriteLine("First you need to select the location you want to order");
+        Console.WriteLine("Select the pizzas you want or customize");
+        Console.WriteLine("Each pizza has two toppings, and it cost $7.99");
+        Console.WriteLine("Each addisional toppings adds 0.5 to your cost");
+        Console.WriteLine("If you wish a larger size, you can pick Large for an additional cost of  $2.00");
+        Console.WriteLine("You can order the family size for an additional cost of  $3.5");
 
-      var starter = new Starter();
-       var user = new User();
-       
+       var starter = new Starter();
+       var user = new User();       
 
        var location = Starter.PickLocation();
        var store = new Store(location);
@@ -36,6 +41,7 @@ namespace PizzaBox.Client
       }
       static void Menu(Order cart)
     {
+      var pizza = new Pizza();
       var exit = false;
 
       do
@@ -48,7 +54,7 @@ namespace PizzaBox.Client
 
         switch (select)
         {
-          case 1:
+         case 1:
             cart.CreatePizza("L", "Stuffed");
             System.Console.WriteLine("added Cheese");
             break;
@@ -61,7 +67,10 @@ namespace PizzaBox.Client
             System.Console.WriteLine("added Pineapple");
             break;
           case 4:
-            cart.CreatePizza("L", "Stuffed");
+            var userCrust = Starter.SelectCrust();
+            var userSize = Starter.SelectSize();
+            cart.CreatePizza(userSize, userCrust);
+            //cart.AddToppings();
             System.Console.WriteLine("added Custom");
             break;
           case 5:
@@ -90,7 +99,7 @@ namespace PizzaBox.Client
          Console.WriteLine(pizza);
          Console.WriteLine(cart.Pricing(pizza.Size, pizza.Toppings.Length));
        }
-      
+
      }
     }
 }

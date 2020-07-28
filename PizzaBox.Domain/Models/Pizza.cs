@@ -35,13 +35,49 @@ namespace PizzaBox.Domain
       Toppings[1] = "cheese";
     }
 
-    public void AddToppings(String[] toppings)
+    public void AddToppings()
     {
-      for (int i = 2; i < 5; i++)
+      var adding = true;
+      Console.WriteLine("Would you like to add any extra toppings");
+
+      var userInput = Console.ReadLine();
+
+      if (userInput.Equals("Y"))
       {
-        Toppings[i] = toppings[i - 2];
+        while(adding == true)
+        {
+           try
+           {
+             Console.WriteLine("add new topping or enter to exit");
+             var newTopping = Console.ReadLine();
+             if (String.IsNullOrEmpty(newTopping))
+             {
+               for (int i = 0; i < 5; i++)
+               {
+                 if (Toppings[i] == null)
+                 {
+                   Toppings[i] = newTopping;
+                       break;
+                 }else
+                 {
+                   i++;
+                 }
+               }
+             }else
+             {
+               break;
+             }
+           }catch
+           {
+             Console.WriteLine("Sorry, you cannot add more toppings");
+           }
+        }
+      }else
+      {
+        Console.WriteLine("Thank you.");
       }
     }
+ 
     public override string ToString()
     {
       var sb = new StringBuilder();

@@ -13,13 +13,9 @@ namespace PizzaBox.Storing.Repositories
     {
       var newPizza = new Pizza();
 
-      newPizza.Crust = new Crust() { Name = pizza.Crust.Name };
-      newPizza.Size = new Size() { Name = pizza.Size.Name };
-      newPizza.Name = pizza.Name;
+      newPizza.Crust = pizza.Crust ;
+      newPizza.Size = pizza.Size;
       var orderDate = DateTime.UtcNow;
-      //newPizza.DateModified = DateTime.Now;
-      //newPizza.Active = false;
-      //newPizza.UserModified = Identity.Hash;
 
       _db.Pizza.Add(newPizza);
       _db.SaveChanges();
@@ -33,17 +29,14 @@ namespace PizzaBox.Storing.Repositories
       {
         domainPizzaList.Add(new domain.Pizza()
         {
-          Crust = new domain.Crust() { Name = item.Crust.Name },
-          Size = new domain.Size() { Name = item.Size.Name },
-          Toppings = new List<domain.Topping>()
+          Crust = item.Crust ,
+          Size = item.Size
+          
         });
       };
 
+
       return domainPizzaList;
     }
-
-    public void Update() {}
-
-    public void Delete() {}
   }
 }

@@ -6,8 +6,11 @@ namespace PizzaBox.Domain
 {
   public class Order : PizzaTools
   {
+    public int price = 0;
     public Pizza[] Pizza {get;}
     int _pizzaCounter = 0;
+    public List<double> Price = new List<double>();
+    
 
 
     public Order()//Pizza pizza)
@@ -28,11 +31,11 @@ namespace PizzaBox.Domain
         }
       }
 
-    public override string Pricing(string size, int numberOfToppings)
+    public new string Pricing(string size, int numberOfToppings)
     {
-      int _price = 0;
+    //  Price.Add(price);
 
-      return $"{_price}";
+      return $"{price}";
     }
   }
 }

@@ -4,7 +4,7 @@ namespace PizzaBox.Domain.Abstracts
 {
   public class PizzaTools
   {
-    public virtual string Pricing(string size, int numberOfToppings)
+    public string Pricing(string size, int numberOfToppings)
     {
       double _regular = 7.99;
       double _price;
@@ -14,9 +14,13 @@ namespace PizzaBox.Domain.Abstracts
       {
         _price = _regular + 2.00 + _toppingPrice * numberOfToppings;
       }
-      else
+      else if (size.Equals("F"))
       {
         _price = _regular + 3.5 + _toppingPrice * numberOfToppings;
+      }
+      else 
+      {
+        _price = _regular + _toppingPrice*numberOfToppings;
       }
       return $"{_price}";
     }
