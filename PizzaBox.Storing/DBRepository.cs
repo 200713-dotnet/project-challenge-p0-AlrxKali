@@ -7,7 +7,7 @@ using domain = PizzaBox.Domain.Models;
 namespace PizzaBox.Storing
 {
   public class DBRepository
-  { 
+  { /*
     private PizzaBoxDBContext _db = new PizzaBoxDBContext();
 
     public void Create(Pizza pizza)
@@ -37,6 +37,6 @@ namespace PizzaBox.Storing
       };
 
       return domainPizzaList;
-    }
+    }*/
   }
 }
