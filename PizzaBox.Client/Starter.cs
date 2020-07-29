@@ -106,5 +106,58 @@ public Order CreateOrder(User user, Store store)
         }
         return size;
       }
+
+      public static string[] SelectToppings()
+    {
+      string[] topps = new string[5];
+      var toppingCounter = 0;
+
+      while (toppingCounter < 5)
+      {
+        Console.WriteLine("Please, select the size do you want for order or press enter to finish");
+        Console.WriteLine("1. Meatballs");
+        Console.WriteLine("2. Sausage");
+        Console.WriteLine("3. Spinach");
+        Console.WriteLine("4. Mushrooms");
+        Console.WriteLine("5. Bacon");
+        Console.WriteLine("6. Olives");
+        Console.WriteLine();
+
+        var userInput = Console.ReadLine();
+        int select = 0;
+        
+
+         if (String.IsNullOrEmpty(userInput))
+         {
+           switch (select)
+        {
+          case 1:
+            topps[toppingCounter] = "Meatballs";
+            break;
+          case 2:
+             topps[toppingCounter] = "Sausage";
+            break;
+            case 3:
+            topps[toppingCounter] = "Spinach";
+            break;
+          case 4:
+             topps[toppingCounter] = "Mushrooms";
+            break;
+            case 5:
+            topps[toppingCounter] = "Bacon";
+            break;
+          case 6:
+             topps[toppingCounter] = "Olives";
+            break;
+        }
+        toppingCounter += toppingCounter;
+         }
+         else
+         {
+           toppingCounter = 5;
+         }
+      }  
+      return topps;
+      }
   }
 }

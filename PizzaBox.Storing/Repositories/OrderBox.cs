@@ -26,5 +26,10 @@ namespace PizzaBox.Storing.Repositories
 
       return domainOrderList;
     }
+
+    private static void AddOrder(domain.Order order)
+    {
+
+    }
   }
 }

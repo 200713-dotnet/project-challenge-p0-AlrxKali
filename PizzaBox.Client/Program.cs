@@ -55,36 +55,40 @@ namespace PizzaBox.Client
         switch (select)
         {
          case 1:
-            cart.CreatePizza("L", "Stuffed");
+            cart.CreatePizza("L", "Stuffed", new string[] {"cheese"} );
             System.Console.WriteLine("added Cheese");
+            Console.WriteLine(cart.TotalCost());
             break;
           case 2:
-            cart.CreatePizza("L", "Stuffed");
+            cart.CreatePizza("L", "Stuffed", new string[] {"pepperoni"});
             System.Console.WriteLine("added Pepperoni");
+            Console.WriteLine(cart.TotalCost());
             break;
           case 3:
-            cart.CreatePizza("L", "Stuffed");
+            cart.CreatePizza("L", "Stuffed", new string[] {"pineapple"});
             System.Console.WriteLine("added Pineapple");
+            Console.WriteLine(cart.TotalCost());
             break;
           case 4:
             var userCrust = Starter.SelectCrust();
             var userSize = Starter.SelectSize();
-            cart.CreatePizza(userSize, userCrust);
-            //cart.AddToppings();
+            string[] topps = Starter.SelectToppings();
+            cart.CreatePizza(userSize, userCrust, topps);
             System.Console.WriteLine("added Custom");
             break;
           case 5:
             DisplayCart(cart);
             break;
           case 6:
-            //var fmw = new FileManager();
-            //fmw.Write(cart);
+            //var db = new OrderBox();
+            //AddOrder(cart);
+            cart.TotalCost();
             System.Console.WriteLine("thank you, goodbye!");
             exit = true;
             break;
           case 7:
-            //var fmr = new FileManager();
-            //DisplayCart(fmr.Read());
+            //var db = new OrderBox();
+            //DisplayCart(db.Read());
             break;
         }
 
@@ -96,8 +100,10 @@ namespace PizzaBox.Client
       {
         foreach (var pizza in cart.Pizza)
        {
+         Console.WriteLine();
          Console.WriteLine(pizza);
          Console.WriteLine(cart.Pricing(pizza.Size, pizza.Toppings.Length));
+         Console.WriteLine();
        }
 
      }

@@ -8,6 +8,8 @@ namespace PizzaBox.Domain
   {
     public string _price = "0";
 
+    public double Price {get; set;}
+
     public string Crust {get; set;}
     public string Size {get; set;}
 
@@ -26,13 +28,15 @@ namespace PizzaBox.Domain
 
     }
     
-    public Pizza(string crust, string size)
+    public Pizza(string crust, string size, string[] toppings)
     {
       Crust = crust;
       Size = size;
 
-      Toppings[0] = "tomato sauce";
-      Toppings[1] = "cheese";
+      for(var i = 0; i < toppings.Length; i++)
+      {
+        Toppings[i] = toppings[i];
+      }
     }
 
     public void AddToppings()
